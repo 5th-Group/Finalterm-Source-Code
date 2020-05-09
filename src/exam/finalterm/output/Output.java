@@ -4,24 +4,34 @@ import java.text.DecimalFormat;
 import exam.finalterm.algorithm.*;
 import exam.finalterm.input.*;
 public class Output {
-	public static StringBuilder nameFix(String name) {
-		int pos = 0;
-		boolean capitalize = true;
-		StringBuilder namefix = new StringBuilder(name);
-		while (pos < namefix.length()) {
-		    if (namefix.charAt(pos) == '.') {
-		        capitalize = true;
-		    } else if (capitalize && !Character.isWhitespace(namefix.charAt(pos))) {
-		        namefix.setCharAt(pos, Character.toUpperCase(namefix.charAt(pos)));
-		        capitalize = false;
-		    }
-		    pos++;
-		}
-		return namefix;
+	public static String conLv;
+	public static int consumptionLevel = PowerConsumption.consumptionLevel;
+	
+	public static String capitalizeFully(String name) {
+	    if (name == null || name.isEmpty()) {
+	        return name;
+	    }
+	 
+	    StringBuilder converted = new StringBuilder();
+	 
+	    boolean convertNext = true;
+	    for (char ch : name.toCharArray()) {
+	        if (Character.isSpaceChar(ch)) {
+	            convertNext = true;
+	        } else if (convertNext) {
+	            ch = Character.toTitleCase(ch);
+	            convertNext = false;
+	        } else {
+	            ch = Character.toLowerCase(ch);
+	        }
+	        converted.append(ch);
+	    }
+	    
+	    return converted.toString();
 	}
 	
-	public static String conLV(int consumptionLevel) {
-		String conLv = " ";
+	public static String conLV() {
+		conLv = " ";
 		switch(consumptionLevel) {
 			case 1:
 					conLv = "I [1500VND].";
@@ -43,12 +53,11 @@ public class Output {
 	}
 	
 	public static void printInfo() {
-		int consumedPower = PowerConsumption.consumedPower(Input.CSC, Input.CSM);
-		int consumptionLevel = PowerConsumption.consumptionLevel(consumedPower);
-		double bill = Bill.total(Bill.currentBill(consumedPower, consumptionLevel));
-		String conLv = Output.conLV(PowerConsumption.consumptionLevel(consumedPower));
-		String address = Input.address, customerID = Input.customerID, phoneNumber= Input.phoneNumber;
-		StringBuilder name = Output.nameFix(Input.name);
+		int consumedPower = PowerConsumption.consumedPower;
+		double bill = Bill.total;
+		String customerID = Input.customerID, phoneNumber= Input.phoneNumber;
+		String address = capitalizeFully(Input.address);
+		String name = capitalizeFully(Input.name);
 		DecimalFormat fix = new DecimalFormat("###,###,###,###.0");
 		
 		System.out.println("//======================================================================//");
@@ -56,7 +65,7 @@ public class Output {
 		System.out.println(">> Ma khach hang: " + customerID);
 		System.out.println(">> So dien thoai: " + phoneNumber);
 		System.out.println(">> Dia chi: " + address);
-		System.out.println(">> Dien nang tieu thu la " + consumedPower + " kw" + ", thuoc dinh muc " + conLv);
+		System.out.println(">> Luong dien nang tieu thu la " + consumedPower + " kw" + ", thuoc dinh muc " + conLv);
 		System.out.println(">> Tong so tien phai tra la " + fix.format(bill) + " VND.");
 	}
 }

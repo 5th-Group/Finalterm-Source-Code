@@ -39,7 +39,7 @@ public class ExceptionCheck {
 				Test.getElectricUsage();
 				break;
 			} catch (MyException e) {
-				System.out.println("Loi nhap xuat: " + e);
+				System.out.println("!! Chi so khong hop le !! Ban da nhap: " +e);
 				if (--numTries == 0) throw e;
 			}
 		}
@@ -52,7 +52,7 @@ public class ExceptionCheck {
 				Test.getID();
 				break;
 			} catch (MyException e) {
-				System.out.println("Loi nhap xuat: " + e);
+				System.out.println("!! Ma khach hang khong hop le !! Ban da nhap: " + e);
 				if (--numTries == 0) throw e;
 			}
 		}

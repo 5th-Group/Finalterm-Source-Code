@@ -1,9 +1,12 @@
 package exam.finalterm.algorithm;
 
+import exam.finalterm.algorithm.PowerConsumption;
 public class Bill {
-	public static int currentBill(int consumedPower, int consumptionLevel) {
-		int currentBill = 0;
-		switch(exam.finalterm.algorithm.PowerConsumption.consumptionLevel(consumedPower)) {
+	public static double total;
+	public static int currentBill, consumedPower = PowerConsumption.consumedPower, consumptionLevel = PowerConsumption.consumptionLevel;
+	
+	public static int currentBill() {
+		switch(consumptionLevel) {
 			case 1: 
 					currentBill = consumedPower * 1500;
 					break;
@@ -22,8 +25,8 @@ public class Bill {
 		return currentBill;
 	}
 	
-	public static double total(int currentBill) {
-		double total = 0;
+	
+	public static double total() {
 		int first = 300000, second = 500000, third = 1000000;
 		if(currentBill < first) {
 			total = currentBill;
