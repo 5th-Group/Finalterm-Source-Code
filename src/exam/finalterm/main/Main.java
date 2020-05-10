@@ -13,9 +13,12 @@ public class Main {
 			Test.getPhoneNumber();
 			Test.getAddress();
 			Test.getWattage();
+			
 			PowerConsumption.consumedPower();
 			PowerConsumption.consumptionLevel();
+			
 			Bill.currentBill();
+			Bill.additionalFee();
 			Bill.total();
 			Output.conLV();
 			

@@ -43,7 +43,7 @@ public class Input {
 	}
 	
 	public void getPhoneNumber() throws MyException {
-		String pattern = "[0\\d]{9,10}";
+		String pattern = "[0\\d]{10,11}";
 		System.out.print(">> So dien thoai: ");
 		phoneNumber = input.nextLine();
 		while(phoneNumber.isEmpty()) {

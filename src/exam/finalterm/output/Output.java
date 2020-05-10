@@ -53,19 +53,22 @@ public class Output {
 	}
 	
 	public static void printInfo() {
-		int consumedPower = PowerConsumption.consumedPower;
-		double bill = Bill.total;
+		int consumedPower = PowerConsumption.consumedPower, currentBill = Bill.currentBill;
+		double bill = Bill.total, addFee = Bill.addFee;
 		String customerID = Input.customerID, phoneNumber= Input.phoneNumber;
 		String address = capitalizeFully(Input.address);
 		String name = capitalizeFully(Input.name);
-		DecimalFormat fix = new DecimalFormat("###,###,###,###.0");
+		DecimalFormat fix = new DecimalFormat("###,###,###,###,###.00");
 		
 		System.out.println("//======================================================================//");
 		System.out.println(">> Ho va ten: " + name);
 		System.out.println(">> Ma khach hang: " + customerID);
 		System.out.println(">> So dien thoai: " + phoneNumber);
 		System.out.println(">> Dia chi: " + address);
-		System.out.println(">> Luong dien nang tieu thu la " + consumedPower + " kw" + ", thuoc dinh muc " + conLv);
-		System.out.println(">> Tong so tien phai tra la " + fix.format(bill) + " VND.");
+		System.out.println("//======================================================================//");
+		System.out.println(">> Dien nang tieu thu: " + consumedPower + " (kw)" + ", thuoc dinh muc " + conLv);
+		System.out.println(">> Tien dien TT: " + fix.format(currentBill) + " (VND)");
+		System.out.println(">> Phu phi: " +  (int)(addFee * 100) + "%");
+		System.out.println(">> Tong tien: " + fix.format(bill) + " (VND)");
 	}
 }

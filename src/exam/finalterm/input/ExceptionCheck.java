@@ -13,7 +13,7 @@ public class ExceptionCheck {
 				Test.getName(); 
 				break;
 			} catch (MyException e) {
-				System.out.println("Ten khong hop le!!");
+				System.out.println("Ten khong hop le!! Vui long khong nhap ki tu dac biet hoac so !!");
 				if (--numTries == 0) throw e;
 			}
 		}

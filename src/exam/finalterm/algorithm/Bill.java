@@ -2,7 +2,7 @@ package exam.finalterm.algorithm;
 
 import exam.finalterm.algorithm.PowerConsumption;
 public class Bill {
-	public static double total;
+	public static double addFee, total;
 	public static int currentBill, consumedPower = PowerConsumption.consumedPower, consumptionLevel = PowerConsumption.consumptionLevel;
 	
 	public static int currentBill() {
@@ -25,22 +25,24 @@ public class Bill {
 		return currentBill;
 	}
 	
-	
-	public static double total() {
+	public static double additionalFee() {
 		int first = 300000, second = 500000, third = 1000000;
 		if(currentBill < first) {
-			total = currentBill;
+			return addFee;
 			
 		} else if(currentBill >= first && currentBill < second) {
-			total = currentBill * 1.3;
+			return addFee = 0.3;
 			
 		} else if(currentBill >= second && currentBill < third) {
-			total = currentBill * 1.8;
+			return addFee = 0.8;
 			
 		} else {
-			total = currentBill * 2.1;
+			return addFee = 1.1;
 			
 		}
-		return total;
+	}
+	
+	public static double total() {
+		return total = currentBill + (currentBill * addFee);
 	}
 }
