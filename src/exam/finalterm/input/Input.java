@@ -3,9 +3,8 @@ package exam.finalterm.input;
 import exam.finalterm.exception.*;
 import java.util.Scanner;
 public class Input {
-	Scanner input = new Scanner(System.in);
-	public static String name, address = " ", phoneNumber, customerID;
-	public static int CSM, CSC;
+	static Scanner input = new Scanner(System.in);
+	public static String name, address = " ", phoneNumber, customerID, CSM, CSC;
 	public Input() {
 		System.out.println("//=================Customer Electricity Service Bill=================//");
 	}
@@ -24,7 +23,7 @@ public class Input {
 	}
 	
 	public void getID() throws MyException {
-		String pattern = "ES-\\d{10}";
+		String pattern = "\\d{10}";
 		System.out.print(">> Ma khach hang: ");
 		customerID = input.nextLine();
 		while(customerID.isEmpty()) {
@@ -56,29 +55,33 @@ public class Input {
 		}
 	}
 	
-	public void getElectricUsage() throws MyException {
-		String pattern = "[0-9]+";
+	public void getCSC() throws MyException {
+		String pattern = "[\\d]+";
 		
-		System.out.print(">> Chi so cu: ");
-		CSC = input.nextInt();
-		while(String.valueOf(CSC).isEmpty()) {
+		System.out.println(">> Chi so cu: ");
+		CSC = input.nextLine();
+		while(CSC.isEmpty()) {
 			System.out.println("!! Vui long nhap chi so !!");
 			System.out.print(">> Chi so cu: ");
-			CSC = input.nextInt();
-		} 
-		if(!String.valueOf(CSC).matches(pattern)) {
-			throw new MyException(String.valueOf(CSC));
+			CSC = input.nextLine();
 		}
+		if(!CSC.matches(pattern)) {
+			throw new MyException(CSC);
+		}
+	}
+	
+	public void getCSM() throws MyException {
+		String pattern = "[\\d]+";
 		
-		System.out.print(">> Chi so moi: ");
-		CSM = input.nextInt();
-		while(String.valueOf(CSM).isEmpty()) {
+		System.out.println(">> Chi so moi: ");
+		CSM = input.nextLine();
+		while(CSM.isEmpty()) {
 			System.out.println("!! Vui long nhap chi so !!");
 			System.out.print(">> Chi so moi: ");
-			CSM = input.nextInt();
-		} 
-		if(!String.valueOf(CSM).matches(pattern) || CSM < CSC) {
-			throw new MyException(String.valueOf(CSM));
+			CSM = input.nextLine();
+		}
+		if(!CSM.matches(pattern)) {
+			throw new MyException(CSM);
 		}
 	}
 }

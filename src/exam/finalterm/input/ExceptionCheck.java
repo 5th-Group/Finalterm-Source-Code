@@ -7,57 +7,56 @@ public class ExceptionCheck {
 	public ExceptionCheck() {
 	}
 	public void getName() throws MyException {
-		int numTries = -1;
 		while(true) {
 			try {
 				Test.getName(); 
 				break;
 			} catch (MyException e) {
 				System.out.println("Ten khong hop le!! Vui long khong nhap ki tu dac biet hoac so !!");
-				if (--numTries == 0) throw e;
 			}
 		}
 	}
 	
 	public void getPhoneNumber() throws MyException {
-		int numTries = -1;
 		while(true) {
 			try {
 				Test.getPhoneNumber(); 
 				break;
 			} catch (MyException e) {
-				System.out.println("So dien thoai khong ton tai!!");
-				if (--numTries == 0) throw e;
+				System.out.println("Vui long nhap dung so dien thoai!!");
 			}
 		}
 	}
 	
 	public void getWattage() throws MyException {
-		int numTries = -1;
 		while(true) {
 			try {
-				Test.getElectricUsage();
+				Test.getCSC();
 				break;
 			} catch (MyException e) {
-				System.out.println("!! Chi so khong hop le !! Ban da nhap: " +e);
-				if (--numTries == 0) throw e;
+				System.out.println("!! Chi so khong hop le !! Vui long khong nhap chu hoac ky tu dac biet !!");
+			}
+		}
+		while(true) {
+			try {
+				Test.getCSM();
+				break;
+			} catch (MyException e) {
+				System.out.println("!! Chi so khong hop le !! Vui long khong nhap chu hoac ky tu dac biet !!");
 			}
 		}
 	}
 	
 	public void getID() throws MyException {
-		int numTries = -1;
 		while(true) {
 			try {
 				Test.getID();
 				break;
 			} catch (MyException e) {
-				System.out.println("!! Ma khach hang khong hop le !! Ban da nhap: " + e);
-				if (--numTries == 0) throw e;
+				System.out.println("!! Ma khach hang khong hop le !! Ma khach hang chi bao gom 10 so");
 			}
 		}
 	}
-	
 	public void getAddress() throws MyException {
 		Test.getAddress();
 	}

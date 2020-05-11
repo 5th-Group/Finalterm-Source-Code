@@ -62,7 +62,7 @@ public class Output {
 		
 		System.out.println("//======================================================================//");
 		System.out.println(">> Ho va ten: " + name);
-		System.out.println(">> Ma khach hang: " + customerID);
+		System.out.println(">> Ma khach hang: ES-" + customerID);
 		System.out.println(">> So dien thoai: " + phoneNumber);
 		System.out.println(">> Dia chi: " + address);
 		System.out.println("//======================================================================//");

@@ -3,7 +3,7 @@ package exam.finalterm.algorithm;
 import exam.finalterm.input.*;
 public class PowerConsumption {
 	
-	public static int CSC = Input.CSC, CSM = Input.CSM;
+	public static int CSC = Integer.parseInt(Input.CSC), CSM = Integer.parseInt(Input.CSM);
 	public static int consumedPower, consumptionLevel;
 	
 	public static int consumedPower() {
