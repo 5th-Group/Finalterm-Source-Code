@@ -35,6 +35,8 @@ public class ExceptionCheck {
 				break;
 			} catch (MyException e) {
 				System.out.println("!! Chi so khong hop le !! Vui long khong nhap chu hoac ky tu dac biet !!");
+			} catch (NumberFormatException e) {
+				System.out.println("!! Chi so qua lon!!");
 			}
 		}
 		while(true) {
@@ -43,6 +45,8 @@ public class ExceptionCheck {
 				break;
 			} catch (MyException e) {
 				System.out.println("!! Chi so khong hop le !! Vui long khong nhap chu hoac ky tu dac biet !!");
+			} catch (NumberFormatException e) {
+				System.out.println("!! Chi so qua lon!!");
 			}
 		}
 	}

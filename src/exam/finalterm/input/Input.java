@@ -67,6 +67,8 @@ public class Input {
 		}
 		if(!CSC.matches(pattern)) {
 			throw new MyException(CSC);
+		} else if(Integer.parseInt(CSC) > Integer.MAX_VALUE) {
+			throw new NumberFormatException();
 		}
 	}
 	
@@ -82,6 +84,8 @@ public class Input {
 		}
 		if(!CSM.matches(pattern)) {
 			throw new MyException(CSM);
+		} else if(Integer.parseInt(CSM) > Integer.MAX_VALUE) {
+			throw new NumberFormatException();
 		}
 	}
 }
