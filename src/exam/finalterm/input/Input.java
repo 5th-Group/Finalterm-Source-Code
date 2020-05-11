@@ -58,7 +58,7 @@ public class Input {
 	public void getCSC() throws MyException {
 		String pattern = "[\\d]+";
 		
-		System.out.println(">> Chi so cu: ");
+		System.out.print(">> Chi so cu: ");
 		CSC = input.nextLine();
 		while(CSC.isEmpty()) {
 			System.out.println("!! Vui long nhap chi so !!");
@@ -73,7 +73,7 @@ public class Input {
 	public void getCSM() throws MyException {
 		String pattern = "[\\d]+";
 		
-		System.out.println(">> Chi so moi: ");
+		System.out.print(">> Chi so moi: ");
 		CSM = input.nextLine();
 		while(CSM.isEmpty()) {
 			System.out.println("!! Vui long nhap chi so !!");
